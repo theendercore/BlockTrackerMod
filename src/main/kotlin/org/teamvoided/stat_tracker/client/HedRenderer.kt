@@ -11,19 +11,17 @@ import org.teamvoided.voidlib.core.datastructures.vector.Vec2i
 import org.teamvoided.voidlib.core.f
 import kotlin.math.floor
 
-object Hud {
-
-
+object HedRenderer {
     private const val BAR_WIDTH = 81
     private val ICONS_TEXTURE = StatTracker.id("textures/gui/icons.png")
 
     fun init() {
         HudRenderCallback.EVENT.register { c, _ ->
-            val goal = MockConfig().goal
+            val goal = MockConfig.goal
             val textRend = MinecraftClient.getInstance().textRenderer
             val number = floor((((100 * ClientDataTracker.blocksMinedGlobal) / goal.f) * 100).toDouble()) / 100f
             val text = "${ClientDataTracker.blocksMinedGlobal}/${goal}"
-            val pos = Vec2i(c.scaledWindowWidth / 2, 40)
+            val pos = (Vec2i(c.scaledWindowWidth, c.scaledWindowHeight).to2f() * MockConfig.location).to2i()
 
 
             c.drawText(textRend, text, pos.x - (textRend.getWidth(text) / 2), pos.y - 11, -1, true)

@@ -18,7 +18,8 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.teamvoided.stat_tracker.networking.NetworkManager.BLOCK_COUNT_UPDATE
 import org.teamvoided.stat_tracker.client.ClientDataTracker
-import org.teamvoided.stat_tracker.client.Hud
+import org.teamvoided.stat_tracker.client.ConfigScreen
+import org.teamvoided.stat_tracker.client.HedRenderer
 import org.teamvoided.stat_tracker.networking.BlockCountUpdateS2C
 import org.teamvoided.stat_tracker.networking.NetworkManager
 
@@ -70,8 +71,8 @@ object StatTracker {
         LOGGER.info("Hello from Client")
         ClientDataTracker.init()
         NetworkManager.initClient()
-        Hud.init()
-        ClientTickEvents.END_CLIENT_TICK.register { if (testKey.wasPressed()) LOGGER.info("heyo") }
+        HedRenderer.init()
+        ClientTickEvents.END_CLIENT_TICK.register { if (testKey.wasPressed()) it.setScreen(ConfigScreen()) }
     }
 
 
