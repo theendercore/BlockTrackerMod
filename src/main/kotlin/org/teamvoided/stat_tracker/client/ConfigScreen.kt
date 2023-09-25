@@ -12,6 +12,7 @@ import org.teamvoided.voidlib.vui.v2.node.layout.BoundingBox
 import org.teamvoided.voidlib.vui.v2.screen.VoidUIAdapter
 import org.teamvoided.voidlib.vui.v2.screen.VuiScreen
 
+@Suppress("MemberVisibilityCanBePrivate")
 class ConfigScreen : VuiScreen<BoxNode>(Text.literal("config")) {
     override val uiAdapter: VoidUIAdapter<BoxNode> =
         VoidUIAdapter.create(this) { pos, size -> BoxNode(pos, size, ARGB(0, 0, 0, 0)) }
