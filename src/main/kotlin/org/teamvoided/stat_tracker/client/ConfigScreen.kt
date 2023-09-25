@@ -18,9 +18,8 @@ class ConfigScreen : VuiScreen<BoxNode>(Text.literal("config")) {
         VoidUIAdapter.create(this) { pos, size -> BoxNode(pos, size, ARGB(0, 0, 0, 0)) }
     private val tRend: TextRenderer = MinecraftClient.getInstance().textRenderer
 
-    val container = ContainerNode(Vec2i(0, 0), Vec2i(0, 0), false)
     val background = BoxNode(Vec2i(0, 0), Vec2i(0, 0), ARGB(35, 0, 0, 0))
-
+    val container = ContainerNode(Vec2i(0, 0), Vec2i(0, 0), false)
     val posOutline =
         BoxNode(Vec2i(0, 0), Vec2i(81, tRend.fontHeight * 2 + 6), ARGB(65, 255, 255, 255))
     val movable = MovableNode(posOutline)
